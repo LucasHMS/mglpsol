@@ -1,0 +1,6 @@
+{
+    "cmd": ["mglpsol", "${file_base_name}.mod"],
+    "file_regex": "^(?:[(]file )*[ ]*(...*?), line ([0-9]*)",
+    "selector": "source.ampl",
+
+}

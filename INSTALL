@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+echo "-----MUST HAVE GIT AND SUBLIME INSTALLED-----"
+
+sudo apt-get install glpk-doc glpk-utils libglpk-dev libglpk36 python-glpk -y
+
+git clone git://github.com/jackdunnnz/sublime-ampl.git AMPL
+cp MGLPSOL.sublime-build AMPL/
+mv AMPL/ ~/.config/sublime-text-3/Packages/
+
+./shc -f mglpsol.sh -o mglpsol
+sudo mv mglpsol /bin/
+rm mglpsol.sh.x.c
+
+echo "TO CONFIGURE THE SUBLIME BUILD SYSTEM DO: Tools > Build System > MGLPSOL"
+echo "open some .mod with sublime and do a CTRL+B to run the model and dispay the output file inside the editor"
+
